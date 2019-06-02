@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="写在开头AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。">
+<meta name="keywords" content="AWTRIX,RPI,IoT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用树莓派3B制作AWTRIX时钟(Building)">
+<meta property="og:url" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/index.html">
+<meta property="og:site_name" content="Sakitami的博客">
+<meta property="og:description" content="写在开头AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/awtrix.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/noobs.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/noobs-down.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/ipcheck.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/linux-on-win.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/sshconnect-1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/io.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/config.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/build.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/endbuild.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01-1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01-2.png">
+<meta property="og:updated_time" content="2019-06-02T02:38:54.295Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用树莓派3B制作AWTRIX时钟(Building)">
+<meta name="twitter:description" content="写在开头AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/awtrix.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sakitami的博客" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>使用树莓派3B制作AWTRIX时钟(Building) | Sakitami的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sakitami的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">我已经无敌了！</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-更新">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/update/" rel="section"><i class="menu-item-icon fa fa-fw fa-sync"></i> <br>更新</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sakitami">
+      <meta itemprop="description" content="为世上的自由而战！（误">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sakitami的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用树莓派3B制作AWTRIX时钟(Building)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-31 08:55:45" itemprop="dateCreated datePublished" datetime="2019-05-31T08:55:45+08:00">2019-05-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-02 10:38:54" itemprop="dateModified" datetime="2019-06-02T10:38:54+08:00">2019-06-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DIY/" itemprop="url" rel="index"><span itemprop="name">DIY</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/05/31/使用树莓派3B制作AWTRIX时钟/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/31/使用树莓派3B制作AWTRIX时钟/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/awtrix.jpg">
+<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。</p>
+<a id="more"></a>
+
+<h1 id="材料准备"><a href="#材料准备" class="headerlink" title="材料准备"></a>材料准备</h1><p>在AWTRIX的官网上，除了树莓派，你要准备的设备有：<br><a href="https://goo.gl/TVk7h7" target="_blank" rel="noopener">Wemos D1 Mini（ESP-12E）</a><br><a href="https://goo.gl/Cjq4FA" target="_blank" rel="noopener">8x32 WS2812B灵活矩阵</a><br><a href="https://goo.gl/QLydM3" target="_blank" rel="noopener">电源（&gt; 4A）</a><br><a href="https://goo.gl/j4Xov7" target="_blank" rel="noopener">直流插座</a><br><a href="https://goo.gl/v87Fzt" target="_blank" rel="noopener">1000uF 10V 105C电容器</a><br>大于16G的TF卡<br>树莓派3B/3B+<br>Windows/Linux/macOS的电脑<br>杜邦线<br>足够的资金用于3D打印屏幕外壳。<a href="https://drive.google.com/open?id=12NpfokQPAx74P4ODqMeQ9yCJnjsl9uVs" target="_blank" rel="noopener">3D打印图纸</a></p>
+<p>然而毕竟现实和理想总是那么格格不入，我手里的WIFI模块就和官网列出的不一样。</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01.png">
+<p>而在接下来的文章中，我将使用这块ESP 01来完成接下来的操作。如果你恰好买了全部的推荐硬件，我建议你去参阅<a href="https://docs.blueforcer.de/#/v2/" target="_blank" rel="noopener">AWTRIX官网</a>。</p>
+<h1 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h1><p>可参阅<a href="https://docs.blueforcer.de/#/v2/host" target="_blank" rel="noopener">AWTRIX服务器搭建</a>。</p>
+<h2 id="Raspbian系统安装"><a href="#Raspbian系统安装" class="headerlink" title="Raspbian系统安装"></a>Raspbian系统安装</h2><p>首先准备你的TF卡，并连接电脑。（推荐使用Windows）<br>格式化TF卡为FAT32格式。</p>
+<p>将官方推荐的<a href="https://raspbian.org/" target="_blank" rel="noopener">Raspbian</a>文件烧写到TF卡中<br>可使用<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">NOOBS</a>简化安装流程。</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/noobs.png">
+<p>两种版本均可选择，安装后无区别。</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/noobs-down.png">
+
+<p>下载后直接解压，并复制到TF卡根目录即可。</p>
+<div class="note warning">
+            <p>注：若使用Raspbian文件，则需要连接显示器进行配置。<a href="https://raspbian.org/RaspbianInstaller" target="_blank" rel="noopener">具体步骤</a></p>
+          </div>
+
+<h2 id="系统基本配置"><a href="#系统基本配置" class="headerlink" title="系统基本配置"></a>系统基本配置</h2><p>连接到外部显示器<br>在Raspbian中开启ssh、vnc，连上wifi/有线。设置一个密码，然后撤掉外部显示器。</p>
+<p>打开你的路由器设置界面，确定RPI的IP地址。</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/ipcheck.png">
+
+<h2 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a>安装服务端</h2><p>更新脚本在文章末尾</p>
+<h3 id="SSH软件准备"><a href="#SSH软件准备" class="headerlink" title="SSH软件准备"></a>SSH软件准备</h3><p>在Windows10上通过商店安装Ubuntu，或者安装xshell软件。</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/linux-on-win.png" title="WSL">
+<p>Linux/macOS则可直接使用Terminal进行ssh连接操作。<br>在以下文本中，将使用Ubuntu连接RPI。</p>
+<p>在Ubuntu的Terminal中通过ssh连接到你的树莓派。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@树莓派的ip地址</span><br><span class="line">password：刚才设置的密码</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/sshconnect-1.png">
+
+<h3 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timedatectl set-timezone &apos;Asia/Shanghai&apos;</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装oracle-java8-jdk"><a href="#安装oracle-java8-jdk" class="headerlink" title="安装oracle java8 jdk"></a>安装oracle java8 jdk</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install oracle-java8-jdk</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载服务端文件"><a href="#下载服务端文件" class="headerlink" title="下载服务端文件"></a>下载服务端文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/local/awtrix</span><br><span class="line">cd /usr/local/awtrix</span><br><span class="line">sudo wget https://blueforcer.de/downloads/awtrix.jar</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置为自启动"><a href="#设置为自启动" class="headerlink" title="设置为自启动"></a>设置为自启动</h3><figure class="highlight plain"><figcaption><span>创建awtrix.service</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/systemd/system/awtrix.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>在出现的操作界面中，写入以下文本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description = AWTRIX Service</span><br><span class="line">After network.target = awtrix.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type = forking</span><br><span class="line">WorkingDirectory =/usr/local/awtrix</span><br><span class="line">ExecStart = /usr/local/bin/awtrix.sh start</span><br><span class="line">ExecStop = /usr/local/bin/awtrix.sh stop</span><br><span class="line">ExecReload = /usr/local/bin/awtrix.sh reload</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>创建启动脚本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/local/bin/awtrix.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>nano中写入以下文本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">SERVICE_NAME=awtrix</span><br><span class="line">PATH_TO_JAR=/usr/local/awtrix/awtrix.jar</span><br><span class="line">PID_PATH_NAME=/tmp/awtrix-pid</span><br><span class="line">case $1 in</span><br><span class="line">    start)</span><br><span class="line">        echo &quot;Starting $SERVICE_NAME ...&quot;</span><br><span class="line">        if [ ! -f $PID_PATH_NAME ]; then</span><br><span class="line">            sudo nohup java -jar $PATH_TO_JAR /tmp 2&gt;&gt; /dev/null &gt;&gt; /dev/null &amp;</span><br><span class="line">                        echo $! &gt; $PID_PATH_NAME</span><br><span class="line">            echo &quot;$SERVICE_NAME started ...&quot;</span><br><span class="line">        else</span><br><span class="line">            echo &quot;$SERVICE_NAME is already running ...&quot;</span><br><span class="line">        fi</span><br><span class="line">    ;;</span><br><span class="line">    stop)</span><br><span class="line">        if [ -f $PID_PATH_NAME ]; then</span><br><span class="line">            PID=$(cat $PID_PATH_NAME);</span><br><span class="line">            echo &quot;$SERVICE_NAME stoping ...&quot;</span><br><span class="line">            kill $PID;</span><br><span class="line">            echo &quot;$SERVICE_NAME stopped ...&quot;</span><br><span class="line">            rm $PID_PATH_NAME</span><br><span class="line">        else</span><br><span class="line">            echo &quot;$SERVICE_NAME is not running ...&quot;</span><br><span class="line">        fi</span><br><span class="line">    ;;</span><br><span class="line">    restart)</span><br><span class="line">        if [ -f $PID_PATH_NAME ]; then</span><br><span class="line">            PID=$(cat $PID_PATH_NAME);</span><br><span class="line">            echo &quot;$SERVICE_NAME stopping ...&quot;;</span><br><span class="line">            kill $PID;</span><br><span class="line">            echo &quot;$SERVICE_NAME stopped ...&quot;;</span><br><span class="line">            rm $PID_PATH_NAME</span><br><span class="line">            echo &quot;$SERVICE_NAME starting ...&quot;</span><br><span class="line">            sudo nohup java -jar $PATH_TO_JAR /tmp 2&gt;&gt; /dev/null &gt;&gt; /dev/null &amp;</span><br><span class="line">                        echo $! &gt; $PID_PATH_NAME</span><br><span class="line">            echo &quot;$SERVICE_NAME started ...&quot;</span><br><span class="line">        else</span><br><span class="line">            echo &quot;$SERVICE_NAME is not running ...&quot;</span><br><span class="line">        fi</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>赋予.sh文件可执行权限</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/awtrix.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>开启服务</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable awtrix​</span><br><span class="line">sudo systemctl start awtrix.service</span><br></pre></td></tr></table></figure>
+
+<p>至此，服务端的搭建就已经完成了<br>可以通过https://你的树莓派地址:7000访问AWTRIX配置。</p>
+<h1 id="WIFI模块固件写入"><a href="#WIFI模块固件写入" class="headerlink" title="WIFI模块固件写入"></a>WIFI模块固件写入</h1><p>只在Windows上测试通过，其他平台请自行搜索。</p>
+<h2 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h2><p>首先，你需要准备三个软件：</p>
+<ul>
+<li><a href="https://drive.google.com/open?id=1sobtXsux_jUOxFCEk_Q6y7oplWEYottj" target="_blank" rel="noopener">XTCON_UTIL</a></li>
+<li><a href="https://drive.google.com/open?id=18Tf0Dsixy39PXJVzVFBZsQCWWjF6Qse-" target="_blank" rel="noopener">sscon42</a></li>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a><br>一个需要编译刷写的文件：</li>
+<li><a href="https://github.com/awtrix/AWTRIX2.0-Controller" target="_blank" rel="noopener">Github</a>。</li>
+</ul>
+<p>确保上述软件及文件（文件需解压）都准备好，即可进行下一步操作。</p>
+<h2 id="安装PlatformIO-IDE"><a href="#安装PlatformIO-IDE" class="headerlink" title="安装PlatformIO IDE"></a>安装PlatformIO IDE</h2><p>打开Visual Studio Code，在左下角的Manage（小齿轮）中选中Extensions，并在搜索框中搜索PlatformIO IDE，然后点击Install。安装后可能会提示重启软件，直接点击Restart即可。</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/io.png">
+
+<h2 id="写入WIFI信息"><a href="#写入WIFI信息" class="headerlink" title="写入WIFI信息"></a>写入WIFI信息</h2><p>打开AWTRIX2.0-Controller-master文件夹，打开src中的awtrix-conf.h文件（使用Visual Studio Code）</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/config.png">
+
+<p>在如下位置填入你的WIFI信息以及服务端IP地址。</p>
+<figure class="highlight plain"><figcaption><span>awtrix-conf.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const char ssid = &quot;你的WIFI SSID&quot;;</span><br><span class="line">const char password = &quot;对应WIFI的密码&quot;;</span><br><span class="line">char awtrix_server = &quot;你的树莓派IP地址&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>记得保存。</p>
+<h2 id="固件编译"><a href="#固件编译" class="headerlink" title="固件编译"></a>固件编译</h2><p>在Visual Studio Code中点击File–Open Folder，选中刚才解压的AWTRIX2.0-Controller-master文件夹，然后点击左下角的Build按钮。</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/build.png">
+
+<p>编译完成后，右下角会出现SUCCESS字样。</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/endbuild.png">
+<p>关闭软件，打开AWTRIX2.0-Controller-master.pioenvs\nodemcuv2文件夹，其中firmware.bin即是我们所需的固件。</p>
+<h2 id="固件刷入"><a href="#固件刷入" class="headerlink" title="固件刷入"></a>固件刷入</h2><p>我用的是这块ESP 01</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01-1.png">
+<p>具体引脚图</p>
+<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01-2.png">
+
+<p>未完待续……</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AWTRIX/" rel="tag"># AWTRIX</a>
+          
+            <a href="/tags/RPI/" rel="tag"># RPI</a>
+          
+            <a href="/tags/IoT/" rel="tag"># IoT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/26/2018年我补过的那些番/" rel="next" title="2018年我补过的那些番">
+                <i class="fa fa-chevron-left"></i> 2018年我补过的那些番
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/01/密码测试/" rel="prev" title="密码测试">
+                密码测试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Sakitami">
+            
+              <p class="site-author-name" itemprop="name">Sakitami</p>
+              <div class="site-description motion-element" itemprop="description">为世上的自由而战！（误</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/sakitami" title="GitHub &rarr; https://github.com/sakitami" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:sakitam2373@gmail.com" title="E-Mail &rarr; mailto:sakitam2373@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/sakitam2373?s=09" title="Twitter &rarr; https://twitter.com/sakitam2373?s=09" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://t.me/Sakitami" title="Telegram &rarr; https://t.me/Sakitami" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在开头"><span class="nav-number">1.</span> <span class="nav-text">写在开头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#材料准备"><span class="nav-number">2.</span> <span class="nav-text">材料准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端搭建"><span class="nav-number">3.</span> <span class="nav-text">服务端搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Raspbian系统安装"><span class="nav-number">3.1.</span> <span class="nav-text">Raspbian系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统基本配置"><span class="nav-number">3.2.</span> <span class="nav-text">系统基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装服务端"><span class="nav-number">3.3.</span> <span class="nav-text">安装服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH软件准备"><span class="nav-number">3.3.1.</span> <span class="nav-text">SSH软件准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置时区"><span class="nav-number">3.3.2.</span> <span class="nav-text">设置时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装oracle-java8-jdk"><span class="nav-number">3.3.3.</span> <span class="nav-text">安装oracle java8 jdk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载服务端文件"><span class="nav-number">3.3.4.</span> <span class="nav-text">下载服务端文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置为自启动"><span class="nav-number">3.3.5.</span> <span class="nav-text">设置为自启动</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WIFI模块固件写入"><span class="nav-number">4.</span> <span class="nav-text">WIFI模块固件写入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件准备"><span class="nav-number">4.1.</span> <span class="nav-text">软件准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装PlatformIO-IDE"><span class="nav-number">4.2.</span> <span class="nav-text">安装PlatformIO IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写入WIFI信息"><span class="nav-number">4.3.</span> <span class="nav-text">写入WIFI信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固件编译"><span class="nav-number">4.4.</span> <span class="nav-text">固件编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固件刷入"><span class="nav-number">4.5.</span> <span class="nav-text">固件刷入</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sakitami</span>
+
+  
+
+  
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+ -->
+
+
+
+<!--
+  <span class="post-meta-divider">|</span>
+-->
+
+
+
+<!--
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+-->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6dUC1ANHaPPpTu2n1l0rKJ0V-gzGzoHsz',
+    appKey: 'U5pguS7DF6ESOHKDq0RPEhAB',
+    placeholder: '不想留下些什么嘛o((>ω< ))o',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
+<script type="text/javascript" src="https://cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
