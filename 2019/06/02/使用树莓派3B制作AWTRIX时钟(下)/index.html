@@ -96,32 +96,29 @@
 
 
 
-  <meta name="description" content="写在开头AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。">
+  <meta name="description" content="写在开头使用树莓派3B制作AWTRIX时钟第二篇，ESP-01 WIFI固件刷入。只在Windows上测试通过，其他平台请自行搜索。">
 <meta name="keywords" content="AWTRIX,RPI,IoT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用树莓派3B制作AWTRIX时钟(Building)">
-<meta property="og:url" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/index.html">
+<meta property="og:title" content="使用树莓派3B制作AWTRIX时钟（下）">
+<meta property="og:url" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/index.html">
 <meta property="og:site_name" content="Sakitami的博客">
-<meta property="og:description" content="写在开头AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。">
+<meta property="og:description" content="写在开头使用树莓派3B制作AWTRIX时钟第二篇，ESP-01 WIFI固件刷入。只在Windows上测试通过，其他平台请自行搜索。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/awtrix.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/noobs.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/noobs-down.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/ipcheck.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/linux-on-win.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/sshconnect-1.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/io.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/config.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/build.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/endbuild.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01-1.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01-2.png">
-<meta property="og:updated_time" content="2019-06-02T02:38:54.295Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/awtrix.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/io.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/config.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/build.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/endbuild.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/esp01-1.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/esp01-2.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/XTCOM.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/XTCOM-2.png">
+<meta property="og:image" content="https://docs.blueforcer.de/v2/assets/AWTRIX_Core_Steckplatine.jpg">
+<meta property="og:updated_time" content="2019-06-02T12:13:53.082Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用树莓派3B制作AWTRIX时钟(Building)">
-<meta name="twitter:description" content="写在开头AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。">
-<meta name="twitter:image" content="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/awtrix.jpg">
+<meta name="twitter:title" content="使用树莓派3B制作AWTRIX时钟（下）">
+<meta name="twitter:description" content="写在开头使用树莓派3B制作AWTRIX时钟第二篇，ESP-01 WIFI固件刷入。只在Windows上测试通过，其他平台请自行搜索。">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/awtrix.jpg">
 
 
 
@@ -131,7 +128,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/">
 
 
 
@@ -141,7 +138,7 @@
   };
 </script>
 
-  <title>使用树莓派3B制作AWTRIX时钟(Building) | Sakitami的博客</title>
+  <title>使用树莓派3B制作AWTRIX时钟（下） | Sakitami的博客</title>
   
 
 
@@ -407,7 +404,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/使用树莓派3B制作AWTRIX时钟/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sakitami">
@@ -424,7 +421,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用树莓派3B制作AWTRIX时钟(Building)
+          <h1 class="post-title" itemprop="name headline">使用树莓派3B制作AWTRIX时钟（下）
 
               
             
@@ -450,24 +447,12 @@
                 
               
 
-              <time title="创建时间：2019-05-31 08:55:45" itemprop="dateCreated datePublished" datetime="2019-05-31T08:55:45+08:00">2019-05-31</time>
+              <time title="创建时间：2019-06-02 20:06:13 / 修改时间：20:13:53" itemprop="dateCreated datePublished" datetime="2019-06-02T20:06:13+08:00">2019-06-02</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-02 10:38:54" itemprop="dateModified" datetime="2019-06-02T10:38:54+08:00">2019-06-02</time>
               
             
           </span>
@@ -503,8 +488,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/31/使用树莓派3B制作AWTRIX时钟/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/31/使用树莓派3B制作AWTRIX时钟/" itemprop="commentCount"></span>
+                <a href="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -512,7 +497,7 @@
 
           
           
-            <span id="/2019/05/31/使用树莓派3B制作AWTRIX时钟/" class="leancloud_visitors" data-flag-title="使用树莓派3B制作AWTRIX时钟(Building)">
+            <span id="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/" class="leancloud_visitors" data-flag-title="使用树莓派3B制作AWTRIX时钟（下）">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -543,60 +528,11 @@
       
 
       
-        <img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/awtrix.jpg">
-<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。</p>
+        <img src="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/awtrix.jpg">
+<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>使用树莓派3B制作AWTRIX时钟第二篇，ESP-01 WIFI固件刷入。<br>只在Windows上测试通过，其他平台请自行搜索。</p>
 <a id="more"></a>
 
-<h1 id="材料准备"><a href="#材料准备" class="headerlink" title="材料准备"></a>材料准备</h1><p>在AWTRIX的官网上，除了树莓派，你要准备的设备有：<br><a href="https://goo.gl/TVk7h7" target="_blank" rel="noopener">Wemos D1 Mini（ESP-12E）</a><br><a href="https://goo.gl/Cjq4FA" target="_blank" rel="noopener">8x32 WS2812B灵活矩阵</a><br><a href="https://goo.gl/QLydM3" target="_blank" rel="noopener">电源（&gt; 4A）</a><br><a href="https://goo.gl/j4Xov7" target="_blank" rel="noopener">直流插座</a><br><a href="https://goo.gl/v87Fzt" target="_blank" rel="noopener">1000uF 10V 105C电容器</a><br>大于16G的TF卡<br>树莓派3B/3B+<br>Windows/Linux/macOS的电脑<br>杜邦线<br>足够的资金用于3D打印屏幕外壳。<a href="https://drive.google.com/open?id=12NpfokQPAx74P4ODqMeQ9yCJnjsl9uVs" target="_blank" rel="noopener">3D打印图纸</a></p>
-<p>然而毕竟现实和理想总是那么格格不入，我手里的WIFI模块就和官网列出的不一样。</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01.png">
-<p>而在接下来的文章中，我将使用这块ESP 01来完成接下来的操作。如果你恰好买了全部的推荐硬件，我建议你去参阅<a href="https://docs.blueforcer.de/#/v2/" target="_blank" rel="noopener">AWTRIX官网</a>。</p>
-<h1 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h1><p>可参阅<a href="https://docs.blueforcer.de/#/v2/host" target="_blank" rel="noopener">AWTRIX服务器搭建</a>。</p>
-<h2 id="Raspbian系统安装"><a href="#Raspbian系统安装" class="headerlink" title="Raspbian系统安装"></a>Raspbian系统安装</h2><p>首先准备你的TF卡，并连接电脑。（推荐使用Windows）<br>格式化TF卡为FAT32格式。</p>
-<p>将官方推荐的<a href="https://raspbian.org/" target="_blank" rel="noopener">Raspbian</a>文件烧写到TF卡中<br>可使用<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">NOOBS</a>简化安装流程。</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/noobs.png">
-<p>两种版本均可选择，安装后无区别。</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/noobs-down.png">
-
-<p>下载后直接解压，并复制到TF卡根目录即可。</p>
-<div class="note warning">
-            <p>注：若使用Raspbian文件，则需要连接显示器进行配置。<a href="https://raspbian.org/RaspbianInstaller" target="_blank" rel="noopener">具体步骤</a></p>
-          </div>
-
-<h2 id="系统基本配置"><a href="#系统基本配置" class="headerlink" title="系统基本配置"></a>系统基本配置</h2><p>连接到外部显示器<br>在Raspbian中开启ssh、vnc，连上wifi/有线。设置一个密码，然后撤掉外部显示器。</p>
-<p>打开你的路由器设置界面，确定RPI的IP地址。</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/ipcheck.png">
-
-<h2 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a>安装服务端</h2><p>更新脚本在文章末尾</p>
-<h3 id="SSH软件准备"><a href="#SSH软件准备" class="headerlink" title="SSH软件准备"></a>SSH软件准备</h3><p>在Windows10上通过商店安装Ubuntu，或者安装xshell软件。</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/linux-on-win.png" title="WSL">
-<p>Linux/macOS则可直接使用Terminal进行ssh连接操作。<br>在以下文本中，将使用Ubuntu连接RPI。</p>
-<p>在Ubuntu的Terminal中通过ssh连接到你的树莓派。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@树莓派的ip地址</span><br><span class="line">password：刚才设置的密码</span><br></pre></td></tr></table></figure>
-
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/sshconnect-1.png">
-
-<h3 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timedatectl set-timezone &apos;Asia/Shanghai&apos;</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装oracle-java8-jdk"><a href="#安装oracle-java8-jdk" class="headerlink" title="安装oracle java8 jdk"></a>安装oracle java8 jdk</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install oracle-java8-jdk</span><br></pre></td></tr></table></figure>
-
-<h3 id="下载服务端文件"><a href="#下载服务端文件" class="headerlink" title="下载服务端文件"></a>下载服务端文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/local/awtrix</span><br><span class="line">cd /usr/local/awtrix</span><br><span class="line">sudo wget https://blueforcer.de/downloads/awtrix.jar</span><br></pre></td></tr></table></figure>
-
-<h3 id="设置为自启动"><a href="#设置为自启动" class="headerlink" title="设置为自启动"></a>设置为自启动</h3><figure class="highlight plain"><figcaption><span>创建awtrix.service</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/systemd/system/awtrix.service</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><figcaption><span>在出现的操作界面中，写入以下文本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description = AWTRIX Service</span><br><span class="line">After network.target = awtrix.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type = forking</span><br><span class="line">WorkingDirectory =/usr/local/awtrix</span><br><span class="line">ExecStart = /usr/local/bin/awtrix.sh start</span><br><span class="line">ExecStop = /usr/local/bin/awtrix.sh stop</span><br><span class="line">ExecReload = /usr/local/bin/awtrix.sh reload</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><figcaption><span>创建启动脚本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/local/bin/awtrix.sh</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><figcaption><span>nano中写入以下文本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">SERVICE_NAME=awtrix</span><br><span class="line">PATH_TO_JAR=/usr/local/awtrix/awtrix.jar</span><br><span class="line">PID_PATH_NAME=/tmp/awtrix-pid</span><br><span class="line">case $1 in</span><br><span class="line">    start)</span><br><span class="line">        echo &quot;Starting $SERVICE_NAME ...&quot;</span><br><span class="line">        if [ ! -f $PID_PATH_NAME ]; then</span><br><span class="line">            sudo nohup java -jar $PATH_TO_JAR /tmp 2&gt;&gt; /dev/null &gt;&gt; /dev/null &amp;</span><br><span class="line">                        echo $! &gt; $PID_PATH_NAME</span><br><span class="line">            echo &quot;$SERVICE_NAME started ...&quot;</span><br><span class="line">        else</span><br><span class="line">            echo &quot;$SERVICE_NAME is already running ...&quot;</span><br><span class="line">        fi</span><br><span class="line">    ;;</span><br><span class="line">    stop)</span><br><span class="line">        if [ -f $PID_PATH_NAME ]; then</span><br><span class="line">            PID=$(cat $PID_PATH_NAME);</span><br><span class="line">            echo &quot;$SERVICE_NAME stoping ...&quot;</span><br><span class="line">            kill $PID;</span><br><span class="line">            echo &quot;$SERVICE_NAME stopped ...&quot;</span><br><span class="line">            rm $PID_PATH_NAME</span><br><span class="line">        else</span><br><span class="line">            echo &quot;$SERVICE_NAME is not running ...&quot;</span><br><span class="line">        fi</span><br><span class="line">    ;;</span><br><span class="line">    restart)</span><br><span class="line">        if [ -f $PID_PATH_NAME ]; then</span><br><span class="line">            PID=$(cat $PID_PATH_NAME);</span><br><span class="line">            echo &quot;$SERVICE_NAME stopping ...&quot;;</span><br><span class="line">            kill $PID;</span><br><span class="line">            echo &quot;$SERVICE_NAME stopped ...&quot;;</span><br><span class="line">            rm $PID_PATH_NAME</span><br><span class="line">            echo &quot;$SERVICE_NAME starting ...&quot;</span><br><span class="line">            sudo nohup java -jar $PATH_TO_JAR /tmp 2&gt;&gt; /dev/null &gt;&gt; /dev/null &amp;</span><br><span class="line">                        echo $! &gt; $PID_PATH_NAME</span><br><span class="line">            echo &quot;$SERVICE_NAME started ...&quot;</span><br><span class="line">        else</span><br><span class="line">            echo &quot;$SERVICE_NAME is not running ...&quot;</span><br><span class="line">        fi</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><figcaption><span>赋予.sh文件可执行权限</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/awtrix.sh</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><figcaption><span>开启服务</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable awtrix​</span><br><span class="line">sudo systemctl start awtrix.service</span><br></pre></td></tr></table></figure>
-
-<p>至此，服务端的搭建就已经完成了<br>可以通过https://你的树莓派地址:7000访问AWTRIX配置。</p>
-<h1 id="WIFI模块固件写入"><a href="#WIFI模块固件写入" class="headerlink" title="WIFI模块固件写入"></a>WIFI模块固件写入</h1><p>只在Windows上测试通过，其他平台请自行搜索。</p>
-<h2 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h2><p>首先，你需要准备三个软件：</p>
+<h1 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h1><p>首先，你需要准备三个软件：</p>
 <ul>
 <li><a href="https://drive.google.com/open?id=1sobtXsux_jUOxFCEk_Q6y7oplWEYottj" target="_blank" rel="noopener">XTCON_UTIL</a></li>
 <li><a href="https://drive.google.com/open?id=18Tf0Dsixy39PXJVzVFBZsQCWWjF6Qse-" target="_blank" rel="noopener">sscon42</a></li>
@@ -604,28 +540,42 @@
 <li><a href="https://github.com/awtrix/AWTRIX2.0-Controller" target="_blank" rel="noopener">Github</a>。</li>
 </ul>
 <p>确保上述软件及文件（文件需解压）都准备好，即可进行下一步操作。</p>
-<h2 id="安装PlatformIO-IDE"><a href="#安装PlatformIO-IDE" class="headerlink" title="安装PlatformIO IDE"></a>安装PlatformIO IDE</h2><p>打开Visual Studio Code，在左下角的Manage（小齿轮）中选中Extensions，并在搜索框中搜索PlatformIO IDE，然后点击Install。安装后可能会提示重启软件，直接点击Restart即可。</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/io.png">
+<h1 id="安装PlatformIO-IDE"><a href="#安装PlatformIO-IDE" class="headerlink" title="安装PlatformIO IDE"></a>安装PlatformIO IDE</h1><p>打开Visual Studio Code，在左下角的Manage（小齿轮）中选中Extensions，并在搜索框中搜索PlatformIO IDE，然后点击Install。安装后可能会提示重启软件，直接点击Restart即可。</p>
+<img src="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/io.png">
 
-<h2 id="写入WIFI信息"><a href="#写入WIFI信息" class="headerlink" title="写入WIFI信息"></a>写入WIFI信息</h2><p>打开AWTRIX2.0-Controller-master文件夹，打开src中的awtrix-conf.h文件（使用Visual Studio Code）</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/config.png">
+<h1 id="写入WIFI信息"><a href="#写入WIFI信息" class="headerlink" title="写入WIFI信息"></a>写入WIFI信息</h1><p>打开AWTRIX2.0-Controller-master文件夹，打开src中的awtrix-conf.h文件（使用Visual Studio Code）</p>
+<img src="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/config.png">
 
 <p>在如下位置填入你的WIFI信息以及服务端IP地址。</p>
 <figure class="highlight plain"><figcaption><span>awtrix-conf.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const char ssid = &quot;你的WIFI SSID&quot;;</span><br><span class="line">const char password = &quot;对应WIFI的密码&quot;;</span><br><span class="line">char awtrix_server = &quot;你的树莓派IP地址&quot;;</span><br></pre></td></tr></table></figure>
 
 <p>记得保存。</p>
-<h2 id="固件编译"><a href="#固件编译" class="headerlink" title="固件编译"></a>固件编译</h2><p>在Visual Studio Code中点击File–Open Folder，选中刚才解压的AWTRIX2.0-Controller-master文件夹，然后点击左下角的Build按钮。</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/build.png">
+<h1 id="固件编译"><a href="#固件编译" class="headerlink" title="固件编译"></a>固件编译</h1><p>在Visual Studio Code中点击File–Open Folder，选中刚才解压的AWTRIX2.0-Controller-master文件夹，然后点击左下角的Build按钮。</p>
+<img src="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/build.png">
 
 <p>编译完成后，右下角会出现SUCCESS字样。</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/endbuild.png">
+<img src="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/endbuild.png">
 <p>关闭软件，打开AWTRIX2.0-Controller-master.pioenvs\nodemcuv2文件夹，其中firmware.bin即是我们所需的固件。</p>
-<h2 id="固件刷入"><a href="#固件刷入" class="headerlink" title="固件刷入"></a>固件刷入</h2><p>我用的是这块ESP 01</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01-1.png">
+<h1 id="固件刷入"><a href="#固件刷入" class="headerlink" title="固件刷入"></a>固件刷入</h1><p>我用的是这块ESP 01</p>
+<img src="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/esp01-1.png">
 <p>具体引脚图</p>
-<img src="/2019/05/31/使用树莓派3B制作AWTRIX时钟/esp01-2.png">
+<img src="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/esp01-2.png">
 
-<p>未完待续……</p>
+<p>若使用官网推荐的开发板，那么可直接通过USB连接到电脑。</p>
+<p>这里就是我自己的接线配置了。<br>对于ESP-O1E，GND接FT232板GND并与GPIO0串联，以及独立3.3V电源负极<br>CH-PD、RST、VCC、GPIO2串联，并接独立3.3V电源正极<br>FXD接FT232板TX、RXD接FT232板RX</p>
+
+
+<p>检测是否可以成功连接，可以使用sscon42串口助手检测是否成功连接。<br>使用管理员身份打开XTCOM_UTIL，依次选择Tools——Config Device</p>
+<img src="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/XTCOM.png">
+<p>其中的COM No选择你自己连接的接口，可在设备管理器中查看。<br>Baud Rate 选择115200<br>点击OPEN，然后给ESP-01断电，断电后再重新上电。<br>点击下面的Connect。若返回“ Connect OK ”则证明已连接。<br>关闭Config Device，依次选择API TEST——FLASH IMAGE DOWNLOAD</p>
+<img src="/2019/06/02/使用树莓派3B制作AWTRIX时钟(下)/XTCOM-2.png">
+<p>选择你刚编译完成的firmware.bin，然后点击Download，等待刷入完成。</p>
+<h1 id="屏幕连接"><a href="#屏幕连接" class="headerlink" title="屏幕连接"></a>屏幕连接</h1><p>参考AWTRIX官网接线图：<br><img src="https://docs.blueforcer.de/v2/assets/AWTRIX_Core_Steckplatine.jpg" alt><br>其中的电容器是可选元件，我在连接的时候并没有用到。<br>其中，<a href="https://docs.blueforcer.de/#/v2/electronics" target="_blank" rel="noopener">官方文档</a>也给出了<a href="https://docs.blueforcer.de/v2/assets/AWTRIX_LDR_Steckplatine.jpg" target="_blank" rel="noopener">光感</a>、<a href="https://docs.blueforcer.de/v2/assets/AWTRIX_Gesture_Steckplatine.jpg" target="_blank" rel="noopener">手势</a>控制，也可以连接<a href="https://docs.blueforcer.de/v2/assets/AWTRIX_DFMini_Steckplatine.jpg" target="_blank" rel="noopener">DFPlayer Mini</a>芯片。</p>
+<h1 id="外壳配置"><a href="#外壳配置" class="headerlink" title="外壳配置"></a>外壳配置</h1><p>下载AWTRIX外壳3D图纸，并打印。（选择不透光材料）<a href="https://drive.google.com/open?id=12NpfokQPAx74P4ODqMeQ9yCJnjsl9uVs" target="_blank" rel="noopener">3D打印图纸</a><br>完成拼装。</p>
+<hr>
+<div class="note success">
+            <p>至此，我们的AWTRIX时钟就全部配置完成了。<br>参考文档：<a href="https://docs.blueforcer.de/#/v2/README" target="_blank" rel="noopener">AWTRIX</a></p>
+          </div>
 
       
     </div>
@@ -666,8 +616,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/26/2018年我补过的那些番/" rel="next" title="2018年我补过的那些番">
-                <i class="fa fa-chevron-left"></i> 2018年我补过的那些番
+              <a href="/2019/06/01/密码测试/" rel="next" title="密码测试">
+                <i class="fa fa-chevron-left"></i> 密码测试
               </a>
             
           </div>
@@ -675,10 +625,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/01/密码测试/" rel="prev" title="密码测试">
-                密码测试 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -753,7 +699,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -906,7 +852,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在开头"><span class="nav-number">1.</span> <span class="nav-text">写在开头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#材料准备"><span class="nav-number">2.</span> <span class="nav-text">材料准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端搭建"><span class="nav-number">3.</span> <span class="nav-text">服务端搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Raspbian系统安装"><span class="nav-number">3.1.</span> <span class="nav-text">Raspbian系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统基本配置"><span class="nav-number">3.2.</span> <span class="nav-text">系统基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装服务端"><span class="nav-number">3.3.</span> <span class="nav-text">安装服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH软件准备"><span class="nav-number">3.3.1.</span> <span class="nav-text">SSH软件准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置时区"><span class="nav-number">3.3.2.</span> <span class="nav-text">设置时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装oracle-java8-jdk"><span class="nav-number">3.3.3.</span> <span class="nav-text">安装oracle java8 jdk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载服务端文件"><span class="nav-number">3.3.4.</span> <span class="nav-text">下载服务端文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置为自启动"><span class="nav-number">3.3.5.</span> <span class="nav-text">设置为自启动</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WIFI模块固件写入"><span class="nav-number">4.</span> <span class="nav-text">WIFI模块固件写入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件准备"><span class="nav-number">4.1.</span> <span class="nav-text">软件准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装PlatformIO-IDE"><span class="nav-number">4.2.</span> <span class="nav-text">安装PlatformIO IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写入WIFI信息"><span class="nav-number">4.3.</span> <span class="nav-text">写入WIFI信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固件编译"><span class="nav-number">4.4.</span> <span class="nav-text">固件编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固件刷入"><span class="nav-number">4.5.</span> <span class="nav-text">固件刷入</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在开头"><span class="nav-number">1.</span> <span class="nav-text">写在开头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件准备"><span class="nav-number">2.</span> <span class="nav-text">软件准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装PlatformIO-IDE"><span class="nav-number">3.</span> <span class="nav-text">安装PlatformIO IDE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写入WIFI信息"><span class="nav-number">4.</span> <span class="nav-text">写入WIFI信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#固件编译"><span class="nav-number">5.</span> <span class="nav-text">固件编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#固件刷入"><span class="nav-number">6.</span> <span class="nav-text">固件刷入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#屏幕连接"><span class="nav-number">7.</span> <span class="nav-text">屏幕连接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#外壳配置"><span class="nav-number">8.</span> <span class="nav-text">外壳配置</span></a></li></ol></div>
             
 
           </div>
