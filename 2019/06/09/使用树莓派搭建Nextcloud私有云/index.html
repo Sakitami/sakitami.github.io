@@ -96,18 +96,27 @@
 
 
 
-  <meta name="description" content="施工中">
-<meta name="keywords" content="博客文章密码">
+  <meta name="description" content="写在开头Nextcloud是一套用于创建网络硬盘的客户端－服务器软件。其功能与Dropbox相近，但Nextcloud是自由及开放源代码软件，每个人都可以在私人服务器上安装并运行它。本文将介绍如何在树莓派3B Raspbian 中安装Nextcloud。">
+<meta name="keywords" content="RPI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用树莓派搭建Nextcloud私有云">
 <meta property="og:url" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/index.html">
 <meta property="og:site_name" content="Sakitami的博客">
-<meta property="og:description" content="施工中">
+<meta property="og:description" content="写在开头Nextcloud是一套用于创建网络硬盘的客户端－服务器软件。其功能与Dropbox相近，但Nextcloud是自由及开放源代码软件，每个人都可以在私人服务器上安装并运行它。本文将介绍如何在树莓派3B Raspbian 中安装Nextcloud。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-09T11:30:06.271Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/nextcloud.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/php_old.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/installing.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/exfat.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/创建数据库.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/数据库用户.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/login.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/success.png">
+<meta property="og:updated_time" content="2019-06-22T01:58:22.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用树莓派搭建Nextcloud私有云">
-<meta name="twitter:description" content="施工中">
+<meta name="twitter:description" content="写在开头Nextcloud是一套用于创建网络硬盘的客户端－服务器软件。其功能与Dropbox相近，但Nextcloud是自由及开放源代码软件，每个人都可以在私人服务器上安装并运行它。本文将介绍如何在树莓派3B Raspbian 中安装Nextcloud。">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/09/使用树莓派搭建Nextcloud私有云/nextcloud.png">
 
 
 
@@ -436,12 +445,24 @@
                 
               
 
-              <time title="创建时间：2019-06-09 19:22:23 / 修改时间：19:30:06" itemprop="dateCreated datePublished" datetime="2019-06-09T19:22:23+08:00">2019-06-09</time>
+              <time title="创建时间：2019-06-09 19:22:23" itemprop="dateCreated datePublished" datetime="2019-06-09T19:22:23+08:00">2019-06-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-22 09:58:22" itemprop="dateModified" datetime="2019-06-22T09:58:22+08:00">2019-06-22</time>
               
             
           </span>
@@ -517,20 +538,110 @@
       
 
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="输入咒语( •̀ ω •́ )y">
-    <label for="pass">输入咒语( •̀ ω •́ )y</label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-U2FsdGVkX1+X5jTlk6X9u1V43Ts8w+MVz8FNyLLlItmKKH6L+7xgsxOhZKFp1uIwZ2I4hNDdWLi3ZkiteehqDCQBhKM7fHKDxLTiBFa3czTVx07Y/uVPKu06GO3xeDpen/898PZX6ivBIGRSkeV2QpwqC+irmKrlSdhtY0S9mtOQhKHDJaQlgIufdVhVTKcH3RJPE6eRUl/GDaJ0KxLIyak9ZK2wnmELOH0A/42uhYYsyicXuUJui4YihlDS3H6pwCH50iY5N5mu5BSsn4w3DTH74CTwQ+aOHprZcKpbD8+vRrcDjugLTG2TVr0u8XcLE267jqjwxwXp+2nBvsEwUCAYzhjfNXMymK9EvK1pU6UTNupKJtf+odWyr2Zxv3VOe6BHhW+FV59EUHkJYjK51QmAzDa9iPJT2WIFPbr5y0ruez7GrcWP+hKQY8wftQPsR2Oll+pxXagV1A51fXZK5A==
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+        <img src="/2019/06/09/使用树莓派搭建Nextcloud私有云/nextcloud.png">
+<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>Nextcloud是一套用于创建网络硬盘的客户端－服务器软件。其功能与Dropbox相近，但Nextcloud是自由及开放源代码软件，每个人都可以在私人服务器上安装并运行它。<br>本文将介绍如何在树莓派3B Raspbian 中安装Nextcloud。</p>
+<a id="more"></a>
+<p>本来我没有写这篇文章的打算，但是通过中文搜索引擎（x度）搜到的一大堆教程，基本都无法正确安装，所以就自己摸索，完美安装了Nextcloud。<br><a href="https://nextcloud.com" target="_blank" rel="noopener">Nextcloud官网链接</a></p>
+<h1 id="安装Raspbian、SSH链接"><a href="#安装Raspbian、SSH链接" class="headerlink" title="安装Raspbian、SSH链接"></a>安装Raspbian、SSH链接</h1><p>参考<a href="https://sakitami.github.io/2019/05/31/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE3B%E5%88%B6%E4%BD%9CAWTRIX%E6%97%B6%E9%92%9F(%E4%B8%8A)/" target="_blank" rel="noopener">使用树莓派3B制作AWTRIX时钟(上)</a></p>
+<h2 id="Raspbian更换软件源"><a href="#Raspbian更换软件源" class="headerlink" title="Raspbian更换软件源"></a>Raspbian更换软件源</h2><p>首先，我们需要更换一个更快的软件源，否则接下来的操作非常耗时。</p>
+<ul>
+<li><p>编辑 <code>/etc/apt/sources.list</code> 文件，删除原文件所有内容，用以下内容取代：</p>
+<figure class="highlight plain"><figcaption><span>/etc/apt/sources.list</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main non-free contrib</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main non-free contrib</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑 <code>/etc/apt/sources.list.d/raspi.list</code> 文件，删除原文件所有内容，用以下内容取代：</p>
+<figure class="highlight plain"><figcaption><span>/etc/apt/sources.list.d/raspi.list</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ stretch main</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>更新软件源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get upgrade -y</span><br></pre></td></tr></table></figure>
+
+<h1 id="安装所需依赖"><a href="#安装所需依赖" class="headerlink" title="安装所需依赖"></a>安装所需依赖</h1><ul>
+<li>注意，若直接安装php等包，则可能安装到7.0版本的php，而nextcloud16最低要求7.1版本，所以请勿直接安装php等包。</li>
+</ul>
+<p>错误信息：</p>
+<img src="/2019/06/09/使用树莓派搭建Nextcloud私有云/php_old.png">
+<h2 id="解决方法参阅文章末尾故障排除。"><a href="#解决方法参阅文章末尾故障排除。" class="headerlink" title="解决方法参阅文章末尾故障排除。"></a>解决方法参阅文章末尾故障排除。</h2><figure class="highlight plain"><figcaption><span>安装软件源拓展工具</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install software-properties-common apt-transport-https lsb-release ca-certificates</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>添加 GPG</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/apt/trusted.gpg.d/php.gpg https://mirror.xtom.com.hk/sury/php/apt.gpg</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>添加 sury 软件源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &apos;echo &quot;deb https://mirror.xtom.com.hk/sury/php/ $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/php.list&apos;   </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>更新软件源缓存</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>安装 PHP7.3</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install php7.3-fpm php7.3-mysql php7.3-curl php7.3-gd php7.3-mbstring php7.3-xml php7.3-xmlrpc php7.3-zip php7.3-opcache -y</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>Apache2等</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mlocate apache2 libapache2-mod-php mariadb-client mariadb-server</span><br><span class="line">wget unzip bzip2 curl php php-common php-curl php-gd php-mbstring php-mysql php-xml</span><br><span class="line">php-zip php-intl php-apcu php-redis php-http-request</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/06/09/使用树莓派搭建Nextcloud私有云/installing.png">
+
+
+<h1 id="开启支持exfat"><a href="#开启支持exfat" class="headerlink" title="开启支持exfat"></a>开启支持exfat</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install exfat-utils</span><br><span class="line">sudo reboot now</span><br></pre></td></tr></table></figure>
+<img src="/2019/06/09/使用树莓派搭建Nextcloud私有云/exfat.png">
+
+<h2 id="通过fdisk了解你的硬盘的路径"><a href="#通过fdisk了解你的硬盘的路径" class="headerlink" title="通过fdisk了解你的硬盘的路径"></a>通过fdisk了解你的硬盘的路径</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l  //或lsblk</span><br></pre></td></tr></table></figure>
+
+<p>这里，我得到的路径为’/dev/sda’,我将用此路径进行下一步操作。</p>
+<figure class="highlight plain"><figcaption><span>格式化硬盘为ext4格式</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs.ext4 /dev/sda</span><br></pre></td></tr></table></figure>
+
+<h2 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h2><p>创建硬盘挂载点/home/pi/sda</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/pi/sda</span><br></pre></td></tr></table></figure>
+
+<p>挂载硬盘</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t ext4 /dev/sda /home/pi/sda</span><br></pre></td></tr></table></figure>
+
+<p>设置为开机自动挂载</p>
+<figure class="highlight plain"><figcaption><span>/etc/fstab</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>加入以下文字</p>
+<figure class="highlight plain"><figcaption><span>/etc/fstab</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sda     /home/pi/sda       ext4      defaults      0      0</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建Apache2-nextcloud配置文件"><a href="#创建Apache2-nextcloud配置文件" class="headerlink" title="创建Apache2 nextcloud配置文件"></a>创建Apache2 nextcloud配置文件</h1><p>创建nextcloud.conf，加入如下文字</p>
+<figure class="highlight plain"><figcaption><span>/etc/apache2/sites-available/nextcloud.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">ServerAdmin webmaster@localhost</span><br><span class="line">DocumentRoot /var/www/nextcloud</span><br><span class="line">Alias /nextcloud &quot;/var/www/nextcloud/&quot;</span><br><span class="line"></span><br><span class="line">&lt;Directory &quot;/var/www/nextcloud/&quot;&gt;</span><br><span class="line">Options +FollowSymlinks</span><br><span class="line">AllowOverride All</span><br><span class="line"></span><br><span class="line">&lt;IfModule mod_dav.c&gt;</span><br><span class="line">Dav off</span><br><span class="line">&lt;/IfModule&gt;</span><br><span class="line"></span><br><span class="line">Require all granted</span><br><span class="line"></span><br><span class="line">SetEnv HOME /var/www/nextcloud</span><br><span class="line">SetEnv HTTP_HOME /var/www/nextcloud</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">ErrorLog $&#123;APACHE_LOG_DIR&#125;/nextcloud_error_log</span><br><span class="line">CustomLog $&#123;APACHE_LOG_DIR&#125;/nextcloud_access_log common</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建MariaDB-数据库和用户"><a href="#创建MariaDB-数据库和用户" class="headerlink" title="创建MariaDB 数据库和用户"></a>创建MariaDB 数据库和用户</h1><p>登录MariaDB控制台：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql -u root</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE nextcloud; //创建新nextcloud数据库</span><br><span class="line">CREATE USER &apos;nextcloud&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;密码&apos;;  //创建新的数据库用户&apos;nextcloud&apos;，其中，&apos;密码&apos;部分键入你的密码</span><br><span class="line">GRANT ALL PRIVILEGES ON nextcloud.* TO &apos;nextcloud&apos;@&apos;localhost&apos;;  //将数据库的权限分配给&apos;nextcloud&apos;用户</span><br><span class="line">FLUSH PRIVILEGES;  //应用更改</span><br><span class="line">exit  //退出控制台</span><br></pre></td></tr></table></figure>
+
+<img src="/2019/06/09/使用树莓派搭建Nextcloud私有云/创建数据库.png">
+<img src="/2019/06/09/使用树莓派搭建Nextcloud私有云/数据库用户.png">
+
+<h1 id="安装Nextcloud"><a href="#安装Nextcloud" class="headerlink" title="安装Nextcloud"></a>安装Nextcloud</h1><p>进入/var/www目录。</p>
+<figure class="highlight plain"><figcaption><span>/var/www</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载Nextcloud-zip文件并提取其中文件"><a href="#下载Nextcloud-zip文件并提取其中文件" class="headerlink" title="下载Nextcloud.zip文件并提取其中文件"></a>下载Nextcloud.zip文件并提取其中文件</h2><figure class="highlight plain"><figcaption><span>/var/www</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://download.nextcloud.com/server/releases/nextcloud-16.0.1.zip</span><br><span class="line">sudo unzip nextcloud-16.0.1.zip</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这里，我将nextcloud-16.0.1.zip同时保存到了我的Nextcloud上，可以<a href="https://skihome.xyz:58888/index.php/s/iKw427S7m2QYWy8" target="_blank" rel="noopener">点击下载</a><h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R www-data:www-data nextcloud   //将nextcloud目录中所有文件的所有者和组更改为www-data</span><br><span class="line">sudo chown -R www-data:www-data /home/pi/sda    //将数据目录中所有文件的所有者和组更改为www-data</span><br></pre></td></tr></table></figure>
+
+<p>使用命令启用nextcloud</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo a2ensite nextcloud.conf      //启用nextcloud.conf站点配置</span><br><span class="line">sudo a2dissite 000-default.conf     //禁用默认站点配置000-default.conf</span><br><span class="line">sudo systemctl restart apache2    //重新启动apache2</span><br></pre></td></tr></table></figure>
+
+<p>将apache2和mariadb添加到系统服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable apache2 mariadb</span><br></pre></td></tr></table></figure>
+
+<div class="note success">
+            <p>现在，您应该能通过树莓派的IP地址打开Nextcloud。 </p>
+          </div>
+
+<h1 id="配置Nextcloud"><a href="#配置Nextcloud" class="headerlink" title="配置Nextcloud"></a>配置Nextcloud</h1><p>创建一个管理员用户，自行创建。</p>
+<img src="/2019/06/09/使用树莓派搭建Nextcloud私有云/login.png">
+
+<ul>
+<li><p>点击下方的箭头，选择MariaDB作为数据库。</p>
+</li>
+<li><p>输入你的数据存放目录，我的是/home/pi/sda</p>
+</li>
+<li><p>点击安装完成，并稍等一段时间。</p>
+</li>
+</ul>
+<h1 id="安装完成"><a href="#安装完成" class="headerlink" title="安装完成"></a>安装完成</h1><img src="/2019/06/09/使用树莓派搭建Nextcloud私有云/success.png">
+
+<h1 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h1><p>列举了部分Nextcloud安装时的故障。</p>
+<h2 id="PHP版本过低"><a href="#PHP版本过低" class="headerlink" title="PHP版本过低"></a>PHP版本过低</h2><p>施工中</p>
+
       
     </div>
 
@@ -622,8 +733,17 @@ U2FsdGVkX1+X5jTlk6X9u1V43Ts8w+MVz8FNyLLlItmKKH6L+7xgsxOhZKFp1uIwZ2I4hNDdWLi3Zkit
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -784,6 +904,23 @@ U2FsdGVkX1+X5jTlk6X9u1V43Ts8w+MVz8FNyLLlItmKKH6L+7xgsxOhZKFp1uIwZ2I4hNDdWLi3Zkit
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在开头"><span class="nav-number">1.</span> <span class="nav-text">写在开头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Raspbian、SSH链接"><span class="nav-number">2.</span> <span class="nav-text">安装Raspbian、SSH链接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Raspbian更换软件源"><span class="nav-number">2.1.</span> <span class="nav-text">Raspbian更换软件源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装所需依赖"><span class="nav-number">3.</span> <span class="nav-text">安装所需依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法参阅文章末尾故障排除。"><span class="nav-number">3.1.</span> <span class="nav-text">解决方法参阅文章末尾故障排除。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启支持exfat"><span class="nav-number">4.</span> <span class="nav-text">开启支持exfat</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过fdisk了解你的硬盘的路径"><span class="nav-number">4.1.</span> <span class="nav-text">通过fdisk了解你的硬盘的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#挂载"><span class="nav-number">4.2.</span> <span class="nav-text">挂载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建Apache2-nextcloud配置文件"><span class="nav-number">5.</span> <span class="nav-text">创建Apache2 nextcloud配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建MariaDB-数据库和用户"><span class="nav-number">6.</span> <span class="nav-text">创建MariaDB 数据库和用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Nextcloud"><span class="nav-number">7.</span> <span class="nav-text">安装Nextcloud</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载Nextcloud-zip文件并提取其中文件"><span class="nav-number">7.1.</span> <span class="nav-text">下载Nextcloud.zip文件并提取其中文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改权限"><span class="nav-number">7.2.</span> <span class="nav-text">修改权限</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Nextcloud"><span class="nav-number">8.</span> <span class="nav-text">配置Nextcloud</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装完成"><span class="nav-number">9.</span> <span class="nav-text">安装完成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#故障排除"><span class="nav-number">10.</span> <span class="nav-text">故障排除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP版本过低"><span class="nav-number">10.1.</span> <span class="nav-text">PHP版本过低</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
