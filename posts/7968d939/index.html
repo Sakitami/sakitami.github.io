@@ -104,18 +104,18 @@
 <meta property="og:site_name" content="Sakitami的博客">
 <meta property="og:description" content="写在开头AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/awtrix.jpg">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/esp01.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/noobs.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/noobs-down.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/ipcheck.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/linux-on-win.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/sshconnect-1.png">
-<meta property="og:updated_time" content="2019-06-23T02:07:46.174Z">
+<meta property="og:image" content="http://yoursite.com/posts/7968d939/awtrix.jpg">
+<meta property="og:image" content="http://yoursite.com/posts/7968d939/esp01.png">
+<meta property="og:image" content="http://yoursite.com/posts/7968d939/noobs.png">
+<meta property="og:image" content="http://yoursite.com/posts/7968d939/noobs-down.png">
+<meta property="og:image" content="http://yoursite.com/posts/7968d939/ipcheck.png">
+<meta property="og:image" content="http://yoursite.com/posts/7968d939/linux-on-win.png">
+<meta property="og:image" content="http://yoursite.com/posts/7968d939/sshconnect-1.png">
+<meta property="og:updated_time" content="2019-06-23T02:24:52.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用树莓派3B制作AWTRIX时钟（上）">
 <meta name="twitter:description" content="写在开头AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。">
-<meta name="twitter:image" content="http://yoursite.com/posts/undefined/awtrix.jpg">
+<meta name="twitter:image" content="http://yoursite.com/posts/7968d939/awtrix.jpg">
 
 
 
@@ -495,7 +495,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-23 10:07:46" itemprop="dateModified" datetime="2019-06-23T10:07:46+08:00">2019-06-23</time>
+                <time title="修改时间：2019-06-23 10:24:52" itemprop="dateModified" datetime="2019-06-23T10:24:52+08:00">2019-06-23</time>
               
             
           </span>
@@ -571,20 +571,20 @@
       
 
       
-        <img src="/posts/undefined/awtrix.jpg">
+        <img src="/posts/7968d939/awtrix.jpg">
 <h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>AWTRIX 2.0（AWesome maTRIX）是一款DIY智能时钟（类似于Lametric时间），专注于可用性，Smarthome完整性和大量功能。</p>
 <a id="more"></a>
 
 <h1 id="材料准备"><a href="#材料准备" class="headerlink" title="材料准备"></a>材料准备</h1><p>在AWTRIX的官网上，除了树莓派，你要准备的设备有：<br><a href="https://goo.gl/TVk7h7" target="_blank" rel="noopener">Wemos D1 Mini（ESP-12E）</a><br><a href="https://goo.gl/Cjq4FA" target="_blank" rel="noopener">8x32 WS2812B灵活矩阵</a><br><a href="https://goo.gl/QLydM3" target="_blank" rel="noopener">电源（&gt; 4A）</a><br><a href="https://goo.gl/j4Xov7" target="_blank" rel="noopener">直流插座</a><br><a href="https://goo.gl/v87Fzt" target="_blank" rel="noopener">1000uF 10V 105C电容器</a><br>大于16G的TF卡<br>Windows/Linux/macOS的电脑<br>杜邦线<br>足够的资金用于3D打印屏幕外壳。<a href="https://drive.google.com/open?id=12NpfokQPAx74P4ODqMeQ9yCJnjsl9uVs" target="_blank" rel="noopener">3D打印图纸</a></p>
 <p>然而毕竟现实和理想总是那么格格不入，我手里的WIFI模块就和官网列出的不一样。</p>
-<img src="/posts/undefined/esp01.png">
+<img src="/posts/7968d939/esp01.png">
 <p>而在接下来的文章中，我将使用这块ESP 01来完成接下来的操作。<br>并且我使用了一块USB转TTL控制板（使用FT232芯片）<br>如果你恰好买了全部的推荐硬件，我建议你去参阅<a href="https://docs.blueforcer.de/#/v2/" target="_blank" rel="noopener">AWTRIX官网</a>。</p>
 <h1 id="服务端搭建"><a href="#服务端搭建" class="headerlink" title="服务端搭建"></a>服务端搭建</h1><p>可参阅<a href="https://docs.blueforcer.de/#/v2/host" target="_blank" rel="noopener">AWTRIX服务器搭建</a>。</p>
 <h2 id="Raspbian系统安装"><a href="#Raspbian系统安装" class="headerlink" title="Raspbian系统安装"></a>Raspbian系统安装</h2><p>首先准备你的TF卡，并连接电脑。（推荐使用Windows）<br>格式化TF卡为FAT32格式。</p>
 <p>将官方推荐的<a href="https://raspbian.org/" target="_blank" rel="noopener">Raspbian</a>文件烧写到TF卡中<br>可使用<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">NOOBS</a>简化安装流程。</p>
-<img src="/posts/undefined/noobs.png">
+<img src="/posts/7968d939/noobs.png">
 <p>两种版本均可选择，安装后无区别。</p>
-<img src="/posts/undefined/noobs-down.png">
+<img src="/posts/7968d939/noobs-down.png">
 
 <p>下载后直接解压，并复制到TF卡根目录即可。</p>
 <div class="note warning">
@@ -593,16 +593,16 @@
 
 <h2 id="系统基本配置"><a href="#系统基本配置" class="headerlink" title="系统基本配置"></a>系统基本配置</h2><p>连接到外部显示器<br>在Raspbian中开启ssh、vnc，连上wifi/有线。设置一个密码，然后撤掉外部显示器。</p>
 <p>打开你的路由器设置界面，确定RPI的IP地址。</p>
-<img src="/posts/undefined/ipcheck.png">
+<img src="/posts/7968d939/ipcheck.png">
 
 <h2 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a>安装服务端</h2><p>更新脚本在文章末尾</p>
 <h3 id="SSH软件准备"><a href="#SSH软件准备" class="headerlink" title="SSH软件准备"></a>SSH软件准备</h3><p>在Windows10上通过商店安装Ubuntu，或者安装xshell软件。</p>
-<img src="/posts/undefined/linux-on-win.png" title="WSL">
+<img src="/posts/7968d939/linux-on-win.png" title="WSL">
 <p>Linux/macOS则可直接使用Terminal进行ssh连接操作。<br>在以下文本中，将使用Ubuntu连接RPI。</p>
 <p>在Ubuntu的Terminal中通过ssh连接到你的树莓派。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@树莓派的ip地址</span><br><span class="line">password：刚才设置的密码</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/undefined/sshconnect-1.png">
+<img src="/posts/7968d939/sshconnect-1.png">
 
 <h3 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timedatectl set-timezone &apos;Asia/Shanghai&apos;</span><br></pre></td></tr></table></figure>
 
@@ -623,7 +623,7 @@
 <figure class="highlight plain"><figcaption><span>开启服务</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable awtrix​.service</span><br><span class="line">sudo systemctl start awtrix.service</span><br></pre></td></tr></table></figure>
 
 <p>至此，服务端的搭建就已经完成了<br>可以通过https://你的树莓派地址:7000访问AWTRIX配置。</p>
-<p>下篇：<a href="https://blog.skihome.xyz/2019/06/02/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE3B%E5%88%B6%E4%BD%9CAWTRIX%E6%97%B6%E9%92%9F(%E4%B8%8B" target="_blank" rel="noopener">使用树莓派3B制作AWTRIX时钟(下)</a></p>
+<p>下篇：<a href="https://blog.skihome.xyz/posts/c1d4be5c/" target="_blank" rel="noopener">使用树莓派3B制作AWTRIX时钟(下)</a></p>
 
       
     </div>

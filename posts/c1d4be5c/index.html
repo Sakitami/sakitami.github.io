@@ -104,21 +104,21 @@
 <meta property="og:site_name" content="Sakitami的博客">
 <meta property="og:description" content="写在开头使用树莓派3B制作AWTRIX时钟第二篇，ESP-01 WIFI固件刷入。只在Windows上测试通过，其他平台请自行搜索。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/awtrix.jpg">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/io.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/config.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/build.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/endbuild.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/esp01-1.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/esp01-2.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/XTCOM.png">
-<meta property="og:image" content="http://yoursite.com/posts/undefined/XTCOM-2.png">
+<meta property="og:image" content="http://yoursite.com/posts/c1d4be5c/awtrix.jpg">
+<meta property="og:image" content="http://yoursite.com/posts/c1d4be5c/io.png">
+<meta property="og:image" content="http://yoursite.com/posts/c1d4be5c/config.png">
+<meta property="og:image" content="http://yoursite.com/posts/c1d4be5c/build.png">
+<meta property="og:image" content="http://yoursite.com/posts/c1d4be5c/endbuild.png">
+<meta property="og:image" content="http://yoursite.com/posts/c1d4be5c/esp01-1.png">
+<meta property="og:image" content="http://yoursite.com/posts/c1d4be5c/esp01-2.png">
+<meta property="og:image" content="http://yoursite.com/posts/c1d4be5c/XTCOM.png">
+<meta property="og:image" content="http://yoursite.com/posts/c1d4be5c/XTCOM-2.png">
 <meta property="og:image" content="https://docs.blueforcer.de/v2/assets/AWTRIX_Core_Steckplatine.jpg">
-<meta property="og:updated_time" content="2019-06-02T12:13:53.082Z">
+<meta property="og:updated_time" content="2019-06-23T02:25:18.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用树莓派3B制作AWTRIX时钟（下）">
 <meta name="twitter:description" content="写在开头使用树莓派3B制作AWTRIX时钟第二篇，ESP-01 WIFI固件刷入。只在Windows上测试通过，其他平台请自行搜索。">
-<meta name="twitter:image" content="http://yoursite.com/posts/undefined/awtrix.jpg">
+<meta name="twitter:image" content="http://yoursite.com/posts/c1d4be5c/awtrix.jpg">
 
 
 
@@ -481,12 +481,24 @@
                 
               
 
-              <time title="创建时间：2019-06-02 20:06:13 / 修改时间：20:13:53" itemprop="dateCreated datePublished" datetime="2019-06-02T20:06:13+08:00">2019-06-02</time>
+              <time title="创建时间：2019-06-02 20:06:13" itemprop="dateCreated datePublished" datetime="2019-06-02T20:06:13+08:00">2019-06-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-23 10:25:18" itemprop="dateModified" datetime="2019-06-23T10:25:18+08:00">2019-06-23</time>
               
             
           </span>
@@ -562,47 +574,47 @@
       
 
       
-        <img src="/posts/undefined/awtrix.jpg">
+        <img src="/posts/c1d4be5c/awtrix.jpg">
 <h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>使用树莓派3B制作AWTRIX时钟第二篇，ESP-01 WIFI固件刷入。<br>只在Windows上测试通过，其他平台请自行搜索。</p>
 <a id="more"></a>
 
 <h1 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h1><p>首先，你需要准备三个软件：</p>
 <ul>
 <li><a href="https://drive.google.com/open?id=1sobtXsux_jUOxFCEk_Q6y7oplWEYottj" target="_blank" rel="noopener">XTCON_UTIL</a></li>
-<li><a href="https://drive.google.com/open?id=18Tf0Dsixy39PXJVzVFBZsQCWWjF6Qse-" target="_blank" rel="noopener">sscon42</a></li>
+<li><a href="https://drive.google.com/open?id=18Tf0Dsixy39PXJVzVFBZsQCWWjF6Qse-" target="_blank" rel="noopener">sscon42</a>（可选）</li>
 <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a><br>一个需要编译刷写的文件：</li>
 <li><a href="https://github.com/awtrix/AWTRIX2.0-Controller" target="_blank" rel="noopener">Github</a>。</li>
 </ul>
 <p>确保上述软件及文件（文件需解压）都准备好，即可进行下一步操作。</p>
 <h1 id="安装PlatformIO-IDE"><a href="#安装PlatformIO-IDE" class="headerlink" title="安装PlatformIO IDE"></a>安装PlatformIO IDE</h1><p>打开Visual Studio Code，在左下角的Manage（小齿轮）中选中Extensions，并在搜索框中搜索PlatformIO IDE，然后点击Install。安装后可能会提示重启软件，直接点击Restart即可。</p>
-<img src="/posts/undefined/io.png">
+<img src="/posts/c1d4be5c/io.png">
 
 <h1 id="写入WIFI信息"><a href="#写入WIFI信息" class="headerlink" title="写入WIFI信息"></a>写入WIFI信息</h1><p>打开AWTRIX2.0-Controller-master文件夹，打开src中的awtrix-conf.h文件（使用Visual Studio Code）</p>
-<img src="/posts/undefined/config.png">
+<img src="/posts/c1d4be5c/config.png">
 
 <p>在如下位置填入你的WIFI信息以及服务端IP地址。</p>
 <figure class="highlight plain"><figcaption><span>awtrix-conf.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const char ssid = &quot;你的WIFI SSID&quot;;</span><br><span class="line">const char password = &quot;对应WIFI的密码&quot;;</span><br><span class="line">char awtrix_server = &quot;你的树莓派IP地址&quot;;</span><br></pre></td></tr></table></figure>
 
 <p>记得保存。</p>
 <h1 id="固件编译"><a href="#固件编译" class="headerlink" title="固件编译"></a>固件编译</h1><p>在Visual Studio Code中点击File–Open Folder，选中刚才解压的AWTRIX2.0-Controller-master文件夹，然后点击左下角的Build按钮。</p>
-<img src="/posts/undefined/build.png">
+<img src="/posts/c1d4be5c/build.png">
 
 <p>编译完成后，右下角会出现SUCCESS字样。</p>
-<img src="/posts/undefined/endbuild.png">
+<img src="/posts/c1d4be5c/endbuild.png">
 <p>关闭软件，打开AWTRIX2.0-Controller-master.pioenvs\nodemcuv2文件夹，其中firmware.bin即是我们所需的固件。</p>
 <h1 id="固件刷入"><a href="#固件刷入" class="headerlink" title="固件刷入"></a>固件刷入</h1><p>我用的是这块ESP 01</p>
-<img src="/posts/undefined/esp01-1.png">
+<img src="/posts/c1d4be5c/esp01-1.png">
 <p>具体引脚图</p>
-<img src="/posts/undefined/esp01-2.png">
+<img src="/posts/c1d4be5c/esp01-2.png">
 
 <p>若使用官网推荐的开发板，那么可直接通过USB连接到电脑。</p>
 <p>这里就是我自己的接线配置了。<br>对于ESP-O1E，GND接FT232板GND并与GPIO0串联，以及独立3.3V电源负极<br>CH-PD、RST、VCC、GPIO2串联，并接独立3.3V电源正极<br>FXD接FT232板TX、RXD接FT232板RX</p>
 
 
 <p>检测是否可以成功连接，可以使用sscon42串口助手检测是否成功连接。<br>使用管理员身份打开XTCOM_UTIL，依次选择Tools——Config Device</p>
-<img src="/posts/undefined/XTCOM.png">
+<img src="/posts/c1d4be5c/XTCOM.png">
 <p>其中的COM No选择你自己连接的接口，可在设备管理器中查看。<br>Baud Rate 选择115200<br>点击OPEN，然后给ESP-01断电，断电后再重新上电。<br>点击下面的Connect。若返回“ Connect OK ”则证明已连接。<br>关闭Config Device，依次选择API TEST——FLASH IMAGE DOWNLOAD</p>
-<img src="/posts/undefined/XTCOM-2.png">
+<img src="/posts/c1d4be5c/XTCOM-2.png">
 <p>选择你刚编译完成的firmware.bin，然后点击Download，等待刷入完成。</p>
 <h1 id="屏幕连接"><a href="#屏幕连接" class="headerlink" title="屏幕连接"></a>屏幕连接</h1><p>参考AWTRIX官网接线图：<br><img src="https://docs.blueforcer.de/v2/assets/AWTRIX_Core_Steckplatine.jpg" alt><br>其中的电容器是可选元件，我在连接的时候并没有用到。<br>其中，<a href="https://docs.blueforcer.de/#/v2/electronics" target="_blank" rel="noopener">官方文档</a>也给出了<a href="https://docs.blueforcer.de/v2/assets/AWTRIX_LDR_Steckplatine.jpg" target="_blank" rel="noopener">光感</a>、<a href="https://docs.blueforcer.de/v2/assets/AWTRIX_Gesture_Steckplatine.jpg" target="_blank" rel="noopener">手势</a>控制，也可以连接<a href="https://docs.blueforcer.de/v2/assets/AWTRIX_DFMini_Steckplatine.jpg" target="_blank" rel="noopener">DFPlayer Mini</a>芯片。</p>
 <h1 id="外壳配置"><a href="#外壳配置" class="headerlink" title="外壳配置"></a>外壳配置</h1><p>下载AWTRIX外壳3D图纸，并打印。（选择不透光材料）<a href="https://drive.google.com/open?id=12NpfokQPAx74P4ODqMeQ9yCJnjsl9uVs" target="_blank" rel="noopener">3D打印图纸</a><br>完成拼装。</p>
