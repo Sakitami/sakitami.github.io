@@ -104,19 +104,10 @@
 <meta property="og:site_name" content="Sakitami的博客">
 <meta property="og:description" content="写在开头Nextcloud是一套用于创建网络硬盘的客户端－服务器软件。其功能与Dropbox相近，但Nextcloud是自由及开放源代码软件，每个人都可以在私人服务器上安装并运行它。本文将介绍如何在树莓派3B Raspbian 中安装Nextcloud。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/posts/8ad3eb9f/nextcloud.png">
-<meta property="og:image" content="http://yoursite.com/posts/8ad3eb9f/php_old.png">
-<meta property="og:image" content="http://yoursite.com/posts/8ad3eb9f/installing.png">
-<meta property="og:image" content="http://yoursite.com/posts/8ad3eb9f/exfat.png">
-<meta property="og:image" content="http://yoursite.com/posts/8ad3eb9f/创建数据库.png">
-<meta property="og:image" content="http://yoursite.com/posts/8ad3eb9f/数据库用户.png">
-<meta property="og:image" content="http://yoursite.com/posts/8ad3eb9f/login.png">
-<meta property="og:image" content="http://yoursite.com/posts/8ad3eb9f/success.png">
 <meta property="og:updated_time" content="2019-06-23T02:23:03.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用树莓派搭建Nextcloud私有云">
 <meta name="twitter:description" content="写在开头Nextcloud是一套用于创建网络硬盘的客户端－服务器软件。其功能与Dropbox相近，但Nextcloud是自由及开放源代码软件，每个人都可以在私人服务器上安装并运行它。本文将介绍如何在树莓派3B Raspbian 中安装Nextcloud。">
-<meta name="twitter:image" content="http://yoursite.com/posts/8ad3eb9f/nextcloud.png">
 
 
 
@@ -572,7 +563,7 @@
       
 
       
-        <img src="/posts/8ad3eb9f/nextcloud.png">
+        
 <h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>Nextcloud是一套用于创建网络硬盘的客户端－服务器软件。其功能与Dropbox相近，但Nextcloud是自由及开放源代码软件，每个人都可以在私人服务器上安装并运行它。<br>本文将介绍如何在树莓派3B Raspbian 中安装Nextcloud。</p>
 <a id="more"></a>
 <p>本来我没有写这篇文章的打算，但是通过中文搜索引擎（x度）搜到的一大堆教程，基本都无法正确安装，所以就自己摸索，完美安装了Nextcloud。<br><a href="https://nextcloud.com" target="_blank" rel="noopener">Nextcloud官网链接</a></p>
@@ -593,7 +584,7 @@
 <li>注意，若直接安装php等包，则可能安装到7.0版本的php，而nextcloud16最低要求7.1版本，所以请勿直接安装php等包。</li>
 </ul>
 <p>错误信息：</p>
-<img src="/posts/8ad3eb9f/php_old.png">
+
 <h2 id="解决方法参阅文章末尾故障排除。"><a href="#解决方法参阅文章末尾故障排除。" class="headerlink" title="解决方法参阅文章末尾故障排除。"></a>解决方法参阅文章末尾故障排除。</h2><figure class="highlight plain"><figcaption><span>安装软件源拓展工具</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install software-properties-common apt-transport-https lsb-release ca-certificates</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><figcaption><span>添加 GPG</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/apt/trusted.gpg.d/php.gpg https://mirror.xtom.com.hk/sury/php/apt.gpg</span><br></pre></td></tr></table></figure>
@@ -606,11 +597,11 @@
 
 <figure class="highlight plain"><figcaption><span>Apache2等</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mlocate apache2 libapache2-mod-php mariadb-client mariadb-server</span><br><span class="line">wget unzip bzip2 curl php php-common php-curl php-gd php-mbstring php-mysql php-xml</span><br><span class="line">php-zip php-intl php-apcu php-redis php-http-request</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/8ad3eb9f/installing.png">
+
 
 
 <h1 id="开启支持exfat"><a href="#开启支持exfat" class="headerlink" title="开启支持exfat"></a>开启支持exfat</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install exfat-utils</span><br><span class="line">sudo reboot now</span><br></pre></td></tr></table></figure>
-<img src="/posts/8ad3eb9f/exfat.png">
+
 
 <h2 id="通过fdisk了解你的硬盘的路径"><a href="#通过fdisk了解你的硬盘的路径" class="headerlink" title="通过fdisk了解你的硬盘的路径"></a>通过fdisk了解你的硬盘的路径</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l  //或lsblk</span><br></pre></td></tr></table></figure>
 
@@ -637,8 +628,8 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE nextcloud; //创建新nextcloud数据库</span><br><span class="line">CREATE USER &apos;nextcloud&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;密码&apos;;  //创建新的数据库用户&apos;nextcloud&apos;，其中，&apos;密码&apos;部分键入你的密码</span><br><span class="line">GRANT ALL PRIVILEGES ON nextcloud.* TO &apos;nextcloud&apos;@&apos;localhost&apos;;  //将数据库的权限分配给&apos;nextcloud&apos;用户</span><br><span class="line">FLUSH PRIVILEGES;  //应用更改</span><br><span class="line">exit  //退出控制台</span><br></pre></td></tr></table></figure>
 
-<img src="/posts/8ad3eb9f/创建数据库.png">
-<img src="/posts/8ad3eb9f/数据库用户.png">
+
+
 
 <h1 id="安装Nextcloud"><a href="#安装Nextcloud" class="headerlink" title="安装Nextcloud"></a>安装Nextcloud</h1><p>进入/var/www目录。</p>
 <figure class="highlight plain"><figcaption><span>/var/www</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www</span><br></pre></td></tr></table></figure>
@@ -661,7 +652,7 @@
           </div>
 
 <h1 id="配置Nextcloud"><a href="#配置Nextcloud" class="headerlink" title="配置Nextcloud"></a>配置Nextcloud</h1><p>创建一个管理员用户，自行创建。</p>
-<img src="/posts/8ad3eb9f/login.png">
+
 
 <ul>
 <li><p>点击下方的箭头，选择MariaDB作为数据库。</p>
@@ -671,7 +662,7 @@
 <li><p>点击安装完成，并稍等一段时间。</p>
 </li>
 </ul>
-<h1 id="安装完成"><a href="#安装完成" class="headerlink" title="安装完成"></a>安装完成</h1><img src="/posts/8ad3eb9f/success.png">
+<h1 id="安装完成"><a href="#安装完成" class="headerlink" title="安装完成"></a>安装完成</h1>
 
 <h1 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h1><p>列举了部分Nextcloud安装时的故障。</p>
 <h2 id="PHP版本过低"><a href="#PHP版本过低" class="headerlink" title="PHP版本过低"></a>PHP版本过低</h2><p>施工中</p>
@@ -692,6 +683,30 @@
     
     
 
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Sakitami</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://yoursite.com/posts/8ad3eb9f/" title="使用树莓派搭建Nextcloud私有云">http://yoursite.com/posts/8ad3eb9f/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
