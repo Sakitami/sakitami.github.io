@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.skihome.xyz/update/index.html</loc>
+    
+    <lastmod>2019-06-29T05:48:45.862Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.skihome.xyz/posts/7968d939/</loc>
     
     <lastmod>2019-06-29T05:44:18.075Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://blog.skihome.xyz/posts/8ad3eb9f/</loc>
     
     <lastmod>2019-06-29T05:43:24.836Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.skihome.xyz/update/index.html</loc>
-    
-    <lastmod>2019-06-28T16:46:15.557Z</lastmod>
     
   </url>
   
