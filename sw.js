@@ -32,9 +32,9 @@ var precacheUrls = [];
 
   precacheUrls.push('/posts/1eefa149/');
 
-  precacheUrls.push('/posts/45729de/');
-
   precacheUrls.push('/posts/cb97402f/');
+
+  precacheUrls.push('/posts/45729de/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};
