@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.skihome.xyz/posts/8ad3eb9f/</loc>
+    <lastmod>2019-08-03</lastmod>
+  </url>  <url>
     <loc>https://blog.skihome.xyz/posts/1eefa149/</loc>
     <lastmod>2019-08-02</lastmod>
   </url>  <url>
@@ -15,9 +18,6 @@
   </url>  <url>
     <loc>https://blog.skihome.xyz/posts/45729de/</loc>
     <lastmod>2019-07-29</lastmod>
-  </url>  <url>
-    <loc>https://blog.skihome.xyz/posts/8ad3eb9f/</loc>
-    <lastmod>2019-07-06</lastmod>
   </url>  <url>
     <loc>https://blog.skihome.xyz/posts/18f169a8/</loc>
     <lastmod>2019-07-03</lastmod>
@@ -37,13 +37,13 @@
     <loc>https://blog.skihome.xyz/posts/cf71037e/</loc>
     <lastmod>2019-06-23</lastmod>
   </url>  <url>
-    <loc>https://blog.skihome.xyz/posts/30e32e78/</loc>
-    <lastmod>2019-06-23</lastmod>
-  </url>  <url>
     <loc>https://blog.skihome.xyz/posts/41b9663e/</loc>
     <lastmod>2019-06-23</lastmod>
   </url>  <url>
     <loc>https://blog.skihome.xyz/posts/b79c5602/</loc>
+    <lastmod>2019-06-23</lastmod>
+  </url>  <url>
+    <loc>https://blog.skihome.xyz/posts/30e32e78/</loc>
     <lastmod>2019-06-23</lastmod>
   </url>
 </urlset>
