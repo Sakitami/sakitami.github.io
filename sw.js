@@ -26,7 +26,7 @@ var precacheUrls = [];
 
   precacheUrls.push('https://blog.skihome.xyz/posts/8ad3eb9f/');
 
-  precacheUrls.push('/posts/c1d4be5c/');
+  precacheUrls.push('/posts/d75bc54e/');
 
   precacheUrls.push('/posts/18f169a8/');
 
