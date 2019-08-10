@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.skihome.xyz/thezenofpython/index.html</loc>
+    
+    <lastmod>2019-08-10T13:46:49.627Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.skihome.xyz/about/index.html</loc>
+    
+    <lastmod>2019-08-10T13:46:20.053Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.skihome.xyz/link/index.html</loc>
     
     <lastmod>2019-08-10T08:50:35.818Z</lastmod>
@@ -135,13 +149,6 @@
   </url>
   
   <url>
-    <loc>https://blog.skihome.xyz/about/index.html</loc>
-    
-    <lastmod>2019-07-03T12:20:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.skihome.xyz/posts/770f7eef/</loc>
     
     <lastmod>2019-07-01T15:23:42.000Z</lastmod>
@@ -163,14 +170,14 @@
   </url>
   
   <url>
-    <loc>https://blog.skihome.xyz/categories/index.html</loc>
+    <loc>https://blog.skihome.xyz/tags/index.html</loc>
     
     <lastmod>2019-05-30T14:25:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.skihome.xyz/tags/index.html</loc>
+    <loc>https://blog.skihome.xyz/categories/index.html</loc>
     
     <lastmod>2019-05-30T14:25:34.000Z</lastmod>
     
