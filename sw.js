@@ -26,15 +26,15 @@ var precacheUrls = [];
 
   precacheUrls.push('https://blog.skihome.xyz/posts/8ad3eb9f/');
 
-  precacheUrls.push('/posts/b79c5602/');
-
   precacheUrls.push('/posts/cf71037e/');
 
-  precacheUrls.push('/posts/66d6c8d7/');
+  precacheUrls.push('/posts/b79c5602/');
 
   precacheUrls.push('/posts/41b9663e/');
 
-  precacheUrls.push('/posts/18766635/');
+  precacheUrls.push('/posts/30e32e78/');
+
+  precacheUrls.push('/posts/66d6c8d7/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};
