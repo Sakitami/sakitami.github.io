@@ -1,3 +1,3 @@
-// build time:Sat Oct 05 2019 16:12:08 GMT+0800 (中国标准时间)
+// build time:Sat Oct 26 2019 19:37:11 GMT+0800 (GMT+08:00)
 window.onload=function(){var t=document.querySelector(".hitokoto");var e=document.querySelector(".from");o();function o(){gethi=new XMLHttpRequest;gethi.open("GET","https://v1.hitokoto.cn");gethi.send();gethi.onreadystatechange=function(){if(gethi.readyState===4&&gethi.status===200){var o=JSON.parse(gethi.responseText);t.innerHTML=o.hitokoto;e.innerHTML="from: <b>"+o.from+"</b>"}}}};
 //rebuild by neat 
