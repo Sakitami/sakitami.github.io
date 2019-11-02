@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.skihome.xyz/posts/1c24d013/</loc>
+    
+    <lastmod>2019-11-02T10:38:51.129Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.skihome.xyz/posts/85280086/</loc>
     
-    <lastmod>2019-10-26T11:35:19.144Z</lastmod>
+    <lastmod>2019-10-26T11:35:53.626Z</lastmod>
     
   </url>
   
@@ -219,14 +226,14 @@
   </url>
   
   <url>
-    <loc>https://blog.skihome.xyz/categories/index.html</loc>
+    <loc>https://blog.skihome.xyz/tags/index.html</loc>
     
     <lastmod>2019-05-30T14:25:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.skihome.xyz/tags/index.html</loc>
+    <loc>https://blog.skihome.xyz/categories/index.html</loc>
     
     <lastmod>2019-05-30T14:25:34.000Z</lastmod>
     
